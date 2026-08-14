@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   shortDescription: string;
   fullDescription: string;
-  category: 'fullstack' | 'backend' | 'frontend' | 'cloud';
+  category: 'python' | 'backend' | 'frontend' | 'fullstack';
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
@@ -11,14 +11,16 @@ export interface Project {
   metrics?: string;
   highlights: string[];
   image: string;
+  monkeyMascot?: string;
 }
 
 export interface Skill {
   name: string;
-  category: 'frontend' | 'backend' | 'database' | 'devops' | 'tools';
+  category: 'frontend' | 'backend' | 'languages' | 'frameworks' | 'tools';
   level: number; // 0 to 100
   iconName: string;
   description: string;
+  emoji?: string;
 }
 
 export interface ExperienceItem {
@@ -40,10 +42,10 @@ export interface ProfileInfo {
   github: string;
   githubUsername: string;
   linkedin: string;
-  twitter?: string;
   bio: string;
   availableForHire: boolean;
   yearsOfExperience: number;
   completedProjects: number;
   contributions: number;
+  jungleMotto: string;
 }

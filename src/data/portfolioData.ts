@@ -2,146 +2,117 @@ import { ProfileInfo, Project, Skill, ExperienceItem } from '../types';
 
 export const profileData: ProfileInfo = {
   name: "Juan Berro",
-  title: "Full-Stack Engineer & Software Architect",
+  title: "Full-Stack Developer & Jungle Code Explorer 🐒🌿",
   location: "América Latina / Remoto",
-  email: "juan.berro.dev@example.com", // Puedes cambiarlo por tu email real
+  email: "juan.berro.dev@example.com",
   github: "https://github.com/JuanBerro-back",
   githubUsername: "JuanBerro-back",
-  linkedin: "https://linkedin.com/in/juan-berro", // Puedes actualizarlo
-  twitter: "https://twitter.com/juanberro_dev",
-  bio: "Ingeniero de Software enfocado en la construcción de sistemas distribuidos, APIs de alto desempeño e interfaces interactivas modernas. Apasionado por la optimización de código, el diseño limpio de arquitecturas y la experiencia de usuario impecable.",
+  linkedin: "https://linkedin.com/in/juan-berro",
+  bio: "¡Hola! Soy Juan Berro, desarrollador de software apasionado por la selva tecnológica. Domino TypeScript, Python, React, Node.js, Tailwind, JavaScript, HTML y CSS. Me encanta construir soluciones ágiles, APIs potentes y proyectos creativos.",
   availableForHire: true,
   yearsOfExperience: 3,
-  completedProjects: 18,
-  contributions: 340
+  completedProjects: 15,
+  contributions: 380,
+  jungleMotto: "¡Construyendo código salvaje y ágil como un monito en la copa de los árboles! 🐒🌴"
 };
 
 export const projectsData: Project[] = [
   {
-    id: "nexus-flow-api",
-    title: "NexusFlow - Core Microservices API",
-    shortDescription: "Motor de microservicios distribuido en Node.js y TypeScript con mensajería Redis y gRPC.",
-    fullDescription: "Arquitectura Backend de alta concurrencia diseñada para procesar miles de peticiones por segundo. Implementa autenticación JWT distribuida, limitación de tasa (Rate Limiting) adaptativa y monitoreo de salud con métricas Prometheus.",
+    id: "whatsapp-api-pedidos",
+    title: "API WhatsApp para Pedidos 🐒📱",
+    shortDescription: "Sistema automatizado en Python + FastAPI para recepción y gestión de pedidos vía WhatsApp.",
+    fullDescription: "Solución de backend en Python (FastAPI + SQLAlchemy) que se conecta con la API de WhatsApp para recibir pedidos comerciales en tiempo real. Extrae automáticamente productos, cantidades, precios y dirección de entrega, almacenándolos en base de datos SQLite con respuestas automatizadas.",
     category: "backend",
-    technologies: ["Node.js", "TypeScript", "Express", "Redis", "PostgreSQL", "Docker", "Jest"],
-    githubUrl: "https://github.com/JuanBerro-back/nexus-flow-api",
-    liveUrl: "https://github.com/JuanBerro-back/nexus-flow-api",
+    technologies: ["Python", "FastAPI", "WhatsApp API", "SQLAlchemy", "SQLite", "Uvicorn", "Node.js"],
+    githubUrl: "https://github.com/JuanBerro-back/prueba-de-api-de-whatsapp-por-pedidos",
+    liveUrl: "https://github.com/JuanBerro-back/prueba-de-api-de-whatsapp-por-pedidos",
     featured: true,
-    metrics: "Procesamiento de +5,000 req/sec con latencia < 25ms",
+    metrics: "Procesamiento inteligente de mensajes en < 2 segundos",
+    monkeyMascot: "🐒💬",
     highlights: [
-      "Diseño de arquitectura limpia (Clean Architecture / Hexagonal)",
-      "Sistema de caché multinivel con invalidación Redis pub/sub",
-      "Pruebas de integración automatizadas con 94% de cobertura"
+      "Webhook inteligente para procesar mensajes entrantes de WhatsApp",
+      "Parser automático de listas de pedidos y direcciones",
+      "Persistencia de datos relacionales con SQLAlchemy ORM"
     ],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "dev-analytics-dashboard",
-    title: "DevMetrics - Dashboard de Analítica en Tiempo Real",
-    shortDescription: "Panel interactivo de métricas de desarrollo construido con React, TypeScript y WebSockets.",
-    fullDescription: "Aplicación Frontend de alto rendimiento para visualizar telemetría de repositorios, commits y builds de CI/CD. Incluye gráficos interactivos, filtrado de eventos en tiempo real y soporte completo para modo oscuro/claro.",
+    id: "geolocalizacion-mapas",
+    title: "Geolocalización & Mapas 🐒🗺️",
+    shortDescription: "Aplicación Python + Flask con Geopy y Folium para posicionamiento y mapas interactivos.",
+    fullDescription: "Plataforma de geolocalización construida en Python y Flask. Realiza geocodificación directa e inversa utilizando OpenStreetMap (Nominatim API), calcula distancias geodésicas y renderiza mapas interactivos en tiempo real con marcadores dinámicos.",
     category: "fullstack",
-    technologies: ["React", "TypeScript", "Vite", "TailwindCSS", "Recharts", "Node.js", "Socket.io"],
-    githubUrl: "https://github.com/JuanBerro-back/dev-analytics-dashboard",
-    liveUrl: "https://devmetrics-demo.vercel.app",
+    technologies: ["Python", "Flask", "Geopy API", "Folium", "HTML5", "CSS3", "JavaScript"],
+    githubUrl: "https://github.com/JuanBerro-back/geolocalizacion",
+    liveUrl: "https://github.com/JuanBerro-back/geolocalizacion",
     featured: true,
-    metrics: "Renderizado fluid a 60fps con actualización en tiempo real",
+    metrics: "Cálculo preciso de coordenadas con representación en mapas interactivos",
+    monkeyMascot: "🐒🧭",
     highlights: [
-      "Conexión constante mediante WebSockets para streaming de datos",
-      "Estado global optimizado evitando re-renders innecesarios",
-      "Diseño responsive adaptado a pantallas táctiles y escritorios"
+      "Conversión directa de direcciones de texto a coordenadas GPS",
+      "Cálculo de distancias geodésicas en kilómetros y millas",
+      "Renderizado de mapas interactivos con marcadores personalizados"
     ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "cloud-storage-engine",
-    title: "ByteVault - Motor de Almacenamiento & Backup AWS",
-    shortDescription: "Servicio Cloud serverless para gestión segura de archivos con encriptación de extremo a extremo.",
-    fullDescription: "Plataforma de procesamiento de archivos que utiliza servicios AWS (S3, Lambda, DynamoDB) para comprimir, analizar y sincronizar respaldos de código con hashing criptográfico.",
-    category: "cloud",
-    technologies: ["TypeScript", "AWS Lambda", "AWS S3", "DynamoDB", "Serverless Framework", "Docker"],
-    githubUrl: "https://github.com/JuanBerro-back/bytevault-cloud-engine",
-    liveUrl: "https://github.com/JuanBerro-back/bytevault-cloud-engine",
-    featured: true,
-    metrics: "Optimización de costos Cloud en un 40% mediante Serverless",
-    highlights: [
-      "Subidas firmadas directamente a S3 evitando cuellos de botella",
-      "Compresión asíncrona de imágenes y documentos vía Lambda",
-      "Infraestructura como código (IaC) reproducible"
-    ],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "task-nexus-kanban",
-    title: "TaskNexus - Gestión Ágil de Proyectos",
-    shortDescription: "Tablero Kanban colaborativo en React con ordenamiento arrastrar y soltar (Drag & Drop).",
-    fullDescription: "Herramienta visual de productividad diseñada para equipos de desarrollo. Permite crear listas, asignar etiquetas personalizadas, filtrar tareas por miembros y sincronizar cambios simultáneos.",
+    id: "calculadora-publicidad",
+    title: "Calculadora con Publicidad 🐒🧮",
+    shortDescription: "Calculadora web interactiva en Python + Flask con integración publicitaria dinámica.",
+    fullDescription: "Aplicación de calculadora desarrollada con Python, Flask e HTML5/CSS3. Soporta operaciones aritméticas, funciones científicas (raíz cuadrada, sin, cos, tan, log) y cuenta con un sistema rotativo de banners publicitarios y analítica de clics.",
     category: "frontend",
-    technologies: ["React", "TypeScript", "Dnd-Kit", "Zustand", "CSS Modules"],
-    githubUrl: "https://github.com/JuanBerro-back/task-nexus-kanban",
-    liveUrl: "https://github.com/JuanBerro-back/task-nexus-kanban",
-    featured: false,
+    technologies: ["Python", "Flask", "JavaScript", "HTML5", "CSS3", "Jinja2"],
+    githubUrl: "https://github.com/JuanBerro-back/calculadora-con-publicidad",
+    liveUrl: "https://github.com/JuanBerro-back/calculadora-con-publicidad",
+    featured: true,
+    metrics: "Calculadora científica completa con slots de publicidad optimizados",
+    monkeyMascot: "🐒🍌",
     highlights: [
-      "Persistencia local con IndexedDB y sincronización remota",
-      "Sustitución fluida de elementos con micro-animaciones CSS",
-      "Atajos de teclado intuitivos para máxima productividad"
+      "Evaluación segura de expresiones matemáticas y funciones científicas",
+      "Sistema de rotación de anuncios patrocinados con métricas de clic",
+      "Diseño adaptable y moderno con historial de operaciones"
     ],
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
 export const skillsData: Skill[] = [
-  { name: "TypeScript", category: "frontend", level: 92, iconName: "Code2", description: "Tipado estricto, genéricos avanzados, utilidades y patrones de diseño." },
-  { name: "React 18", category: "frontend", level: 90, iconName: "Atom", description: "Hooks personalizados, Context API, Renderización eficiente y componentes reutilizables." },
-  { name: "Node.js & Express", category: "backend", level: 95, iconName: "Server", description: "Construcción de REST APIs, middleware personalizado y microservicios." },
-  { name: "PostgreSQL & SQL", category: "database", level: 88, iconName: "Database", description: "Modelado relacional, optimización de queries, índices y transacciones ACID." },
-  { name: "MongoDB / NoSQL", category: "database", level: 85, iconName: "Layers", description: "Colecciones estructuradas, pipelines de agregación y almacenamiento flexible." },
-  { name: "Docker & Contenedores", category: "devops", level: 84, iconName: "Container", description: "Containerización multi-stage, Docker Compose y ambientes aislados." },
-  { name: "Git & GitHub Actions", category: "tools", level: 90, iconName: "GitBranch", description: "Flujos GitFlow, CI/CD pipelines, despliegue automatizado." },
-  { name: "Redis & Caching", category: "backend", level: 82, iconName: "Zap", description: "Estrategias de caché en memoria, pub/sub y rate limiting." },
-  { name: "CSS3 / Vanilla / Animations", category: "frontend", level: 88, iconName: "Palette", description: "Diseño responsive, Flexbox, CSS Grid, Glassmorphism y animaciones fluidas." }
+  { name: "TypeScript", category: "languages", level: 92, iconName: "Code2", emoji: "⚡", description: "Tipado estricto, interfaces, genéricos y patrones sólidos." },
+  { name: "Python", category: "languages", level: 95, iconName: "Terminal", emoji: "🐍", description: "FastAPI, Flask, Geopy, automatización y scripting." },
+  { name: "React", category: "frameworks", level: 90, iconName: "Atom", emoji: "⚛️", description: "Hooks, componentes interactivos, estado global y SPA." },
+  { name: "JavaScript (ES6+)", category: "languages", level: 94, iconName: "Code", emoji: "🟨", description: "Async/Await, promesas, DOM manipulation y lógica ágil." },
+  { name: "Node.js", category: "backend", level: 88, iconName: "Server", emoji: "🟩", description: "REST APIs, Express, arquitectura asíncrona y npm." },
+  { name: "Tailwind CSS", category: "frontend", level: 90, iconName: "Palette", emoji: "🎨", description: "Maquetación moderna utility-first, responsive y animada." },
+  { name: "HTML5 & CSS3", category: "frontend", level: 95, iconName: "Layers", emoji: "🌐", description: "Estructuras semánticas, Flexbox, CSS Grid y animaciones." },
+  { name: "Git & GitHub", category: "tools", level: 92, iconName: "GitBranch", emoji: "🌿", description: "Control de versiones, repositorios, GitHub Pages y CI/CD." }
 ];
 
 export const experienceData: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "Full-Stack Developer",
-    company: "Proyectos Independientes & Open Source",
+    role: "Full-Stack & Python Engineer 🐒",
+    company: "Proyectos Destacados en GitHub @JuanBerro-back",
     period: "2023 - Presente",
-    description: "Liderazgo en la creación de aplicaciones web escalables y servicios Backend optimizados para rendimiento y alta disponibilidad.",
+    description: "Desarrollo de ecosistemas de software en Python, React y TypeScript: desde bots de WhatsApp y geolocalización hasta interfaces interactivas.",
     achievements: [
-      "Desarrollo de módulos API con TypeScript y Node.js procesando más de 5k peticiones/segundo",
-      "Creación y mantenimiento de repositorios públicos en GitHub con integración continua CI/CD",
-      "Implementación de prácticas Clean Architecture e integración con PostgreSQL y Redis"
+      "Desarrollo de API de WhatsApp en Python (FastAPI) para gestión de pedidos comerciales",
+      "Creación de app de Geolocalización en tiempo real con OpenStreetMap y Folium",
+      "Implementación de aplicaciones web con React, TypeScript y Tailwind CSS"
     ],
-    skills: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker", "GitHub Actions"],
+    skills: ["TypeScript", "Python", "React", "Node.js", "Tailwind CSS", "FastAPI", "Flask"],
     type: "work"
   },
   {
     id: "exp-2",
-    role: "Backend Specialist & API Designer",
-    company: "Desarrollo de Software Libres",
-    period: "2022 - 2023",
-    description: "Construcción de arquitecturas para integración de servicios, pasarelas de pago y autenticación segura.",
+    role: "Desarrollador Web & Explorador Técnico",
+    company: "Formación Universitaria & Proyectos Libres",
+    period: "2021 - 2023",
+    description: "Especialización en lógica de programación, bases de datos relacionales y desarrollo ágil.",
     achievements: [
-      "Optimización de consultas SQL reduciendo el tiempo de respuesta de BD en un 35%",
-      "Diseño de esquemas de autenticación robustos basados en OAuth2 y JWT",
-      "Documentación interactiva de endpoints con OpenAPI / Swagger"
+      "Construcción de herramientas web optimizadas con JavaScript, HTML5 y CSS3",
+      "Integración de APIs REST y servicios en la nube"
     ],
-    skills: ["Node.js", "Express", "REST APIs", "SQL", "JWT", "Swagger"],
-    type: "work"
-  },
-  {
-    id: "exp-3",
-    role: "Ingeniería de Sistemas / Desarrollo de Software",
-    company: "Formación Universitaria & Autodidacta",
-    period: "2020 - 2023",
-    description: "Especialización en estructuras de datos, algoritmos de optimización, arquitectura de computadoras y bases de datos relacionales.",
-    achievements: [
-      "Certificación en desarrollo Web Full-Stack y arquitecturas modernas en la nube",
-      "Participación destacada en proyectos de hackathons y código colaborativo"
-    ],
-    skills: ["Algoritmos", "Estructura de Datos", "Patrones de Diseño", "POO"],
+    skills: ["JavaScript", "HTML5", "CSS3", "SQL", "Git"],
     type: "education"
   }
 ];

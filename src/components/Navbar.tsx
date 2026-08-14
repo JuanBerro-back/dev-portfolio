@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Menu, X, Code2 } from 'lucide-react';
+import { Github, Menu, X } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
@@ -32,12 +32,12 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#hero', id: 'hero' },
-    { name: 'Sobre Mí', href: '#about', id: 'about' },
-    { name: 'Proyectos', href: '#projects', id: 'projects' },
-    { name: 'Terminal CLI', href: '#terminal', id: 'terminal' },
-    { name: 'Experiencia', href: '#experience', id: 'experience' },
-    { name: 'Contacto', href: '#contact', id: 'contact' },
+    { name: '🌴 Inicio', href: '#hero', id: 'hero' },
+    { name: '🐒 Sobre Mí', href: '#about', id: 'about' },
+    { name: '🍌 Proyectos', href: '#projects', id: 'projects' },
+    { name: '💻 Terminal CLI', href: '#terminal', id: 'terminal' },
+    { name: '🌿 Trayectoria', href: '#experience', id: 'experience' },
+    { name: '📩 Contacto', href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -49,43 +49,44 @@ export const Navbar: React.FC = () => {
         right: 0,
         zIndex: 100,
         transition: 'all 0.3s ease',
-        background: isScrolled ? 'rgba(9, 13, 22, 0.85)' : 'transparent',
+        background: isScrolled ? 'rgba(7, 19, 14, 0.9)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
-        padding: isScrolled ? '0.8rem 0' : '1.5rem 0',
+        borderBottom: isScrolled ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid transparent',
+        padding: isScrolled ? '0.8rem 0' : '1.4rem 0',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Brand Logo */}
+        {/* Brand Logo with Monkey & Jungle Leaf */}
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 700, fontSize: '1.25rem' }}>
           <div style={{
-            width: '38px',
-            height: '38px',
-            borderRadius: '10px',
-            background: 'var(--grad-main)',
+            width: '42px',
+            height: '42px',
+            borderRadius: '12px',
+            background: 'var(--grad-jungle)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#0d1117'
+            color: '#07130e',
+            fontSize: '1.4rem'
           }}>
-            <Code2 size={22} strokeWidth={2.5} />
+            🐒
           </div>
           <span style={{ fontFamily: 'var(--font-heading)' }}>
-            Juan<span style={{ color: 'var(--primary-cyan)' }}>.Berro</span>
+            Juan<span style={{ color: 'var(--jungle-emerald)' }}>.Berro</span> 🌴
           </span>
         </a>
 
         {/* Desktop Nav */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
-          <ul style={{ display: 'flex', gap: '1.8rem', listStyle: 'none' }}>
+          <ul style={{ display: 'flex', gap: '1.6rem', listStyle: 'none' }}>
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={link.href}
                   style={{
                     fontSize: '0.92rem',
-                    fontWeight: 500,
-                    color: activeSection === link.id ? 'var(--primary-cyan)' : 'var(--text-muted)',
+                    fontWeight: 600,
+                    color: activeSection === link.id ? 'var(--jungle-emerald)' : 'var(--text-muted)',
                     transition: 'color 0.2s ease',
                     position: 'relative',
                     paddingBottom: '4px'
@@ -100,9 +101,9 @@ export const Navbar: React.FC = () => {
                         left: 0,
                         right: 0,
                         height: '2px',
-                        background: 'var(--primary-cyan)',
+                        background: 'var(--jungle-emerald)',
                         borderRadius: '2px',
-                        boxShadow: '0 0 8px var(--primary-cyan)'
+                        boxShadow: '0 0 8px var(--jungle-emerald)'
                       }}
                     />
                   )}
@@ -121,19 +122,20 @@ export const Navbar: React.FC = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.4rem 0.8rem',
-                borderRadius: '8px',
-                background: 'rgba(255, 255, 255, 0.05)',
+                gap: '0.5rem',
+                padding: '0.45rem 0.9rem',
+                borderRadius: '10px',
+                background: 'rgba(16, 185, 129, 0.08)',
                 border: '1px solid var(--border-color)',
-                fontSize: '0.85rem',
+                fontSize: '0.88rem',
+                fontWeight: 600,
                 color: 'var(--text-main)',
                 transition: 'all 0.2s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--primary-cyan)')}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--jungle-emerald)')}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
             >
-              <Github size={16} />
+              <Github size={16} color="var(--jungle-emerald)" />
               <span>@JuanBerro-back</span>
             </a>
           </div>
@@ -180,8 +182,8 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 fontSize: '1.1rem',
-                fontWeight: 500,
-                color: activeSection === link.id ? 'var(--primary-cyan)' : 'var(--text-main)',
+                fontWeight: 600,
+                color: activeSection === link.id ? 'var(--jungle-emerald)' : 'var(--text-main)',
                 padding: '0.5rem 0'
               }}
             >
@@ -199,19 +201,19 @@ export const Navbar: React.FC = () => {
               gap: '0.5rem',
               padding: '0.8rem',
               borderRadius: '10px',
-              background: 'var(--grad-main)',
-              color: '#0d1117',
-              fontWeight: 600,
+              background: 'var(--grad-jungle)',
+              color: '#07130e',
+              fontWeight: 700,
               marginTop: '0.5rem'
             }}
           >
-            <Github size={18} /> Ver GitHub @JuanBerro-back
+            <Github size={18} /> Ver GitHub @JuanBerro-back 🐒
           </a>
         </div>
       )}
 
       <style>{`
-        @media (max-width: 850px) {
+        @media (max-width: 880px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: block !important; }
         }
