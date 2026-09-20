@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
+import { GithubStats } from './components/GithubStats';
 import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
         <Hero />
         <About />
         <Projects />
+        <GithubStats />
         <InteractiveTerminal />
         <Experience />
         <Contact />

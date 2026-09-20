@@ -109,21 +109,27 @@ export const Hero: React.FC = () => {
             marginTop: '2rem'
           }}>
             <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>🐒 🌴</div>
+              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>💼 🚀</div>
               <h3 style={{ fontSize: '2rem', color: 'var(--jungle-emerald)', marginBottom: '0.2rem' }}>+{profileData.yearsOfExperience} Años</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Experiencia en Selva Code</p>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Experiencia en Desarrollo</p>
             </div>
             
             <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>🍌 🚀</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--banana-gold)', marginBottom: '0.2rem' }}>{profileData.completedProjects}+</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Proyectos Entregados</p>
+              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>📦 🐙</div>
+              <h3 style={{ fontSize: '2rem', color: 'var(--banana-gold)', marginBottom: '0.2rem' }}>{profileData.githubRepos}</h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Repos Públicos en GitHub</p>
             </div>
 
             <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>🍃 💻</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--jungle-lime)', marginBottom: '0.2rem' }}>{profileData.contributions}+</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Commits en GitHub</p>
+              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>⭐ ⭐</div>
+              <h3 style={{ fontSize: '2rem', color: 'var(--banana-gold)', marginBottom: '0.2rem' }}>{profileData.githubStars}+</h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Estrellas Totales</p>
+            </div>
+
+            <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>🧑‍🤝‍🧑 👀</div>
+              <h3 style={{ fontSize: '2rem', color: 'var(--jungle-lime)', marginBottom: '0.2rem' }}>{profileData.githubFollowers}</h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Seguidores en GitHub</p>
             </div>
           </div>
 

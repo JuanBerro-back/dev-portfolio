@@ -2,18 +2,21 @@ import { ProfileInfo, Project, Skill, ExperienceItem } from '../types';
 
 export const profileData: ProfileInfo = {
   name: "Juan Berro",
-  title: "Full-Stack Developer & Jungle Code Explorer 🐒🌿",
-  location: "América Latina / Remoto",
+  title: "Full-Stack Developer & Software Engineer",
+  location: "América Latina · Remoto",
   email: "juan.berro.dev@example.com",
   github: "https://github.com/JuanBerro-back",
   githubUsername: "JuanBerro-back",
   linkedin: "https://linkedin.com/in/juan-berro",
-  bio: "¡Hola! Soy Juan Berro, desarrollador de software apasionado por la selva tecnológica. Domino TypeScript, Python, React, Node.js, Tailwind, JavaScript, HTML y CSS. Me encanta construir soluciones ágiles, APIs potentes y proyectos creativos.",
+  bio: "Desarrollador Full-Stack enfocado en construir software escalable, APIs de alto rendimiento y experiencias web fluidas. Especializado en TypeScript, Python, React y Node.js, con publicación activa de proyectos open source en GitHub.",
   availableForHire: true,
-  yearsOfExperience: 3,
-  completedProjects: 15,
-  contributions: 380,
-  jungleMotto: "¡Construyendo código salvaje y ágil como un monito en la copa de los árboles! 🐒🌴"
+  yearsOfExperience: 2,
+  completedProjects: 24,
+  contributions: 62,
+  githubRepos: 24,
+  githubFollowers: 39,
+  githubStars: 62,
+  jungleMotto: "Construyendo software sólido y escalable, un commit a la vez. 🐒🌴"
 };
 
 export const projectsData: Project[] = [
@@ -73,6 +76,120 @@ export const projectsData: Project[] = [
       "Diseño adaptable y moderno con historial de operaciones"
     ],
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "pokepoke",
+    title: "PokePoke 🐒🕹️",
+    shortDescription: "Aplicación web interactiva con temática Pokémon, panel de administración y despliegue en la nube.",
+    fullDescription: "Proyecto de aplicación web construido en JavaScript con una interfaz interactiva basada en la temática Pokémon. Incluye un panel de administración separado y está desplegado en producción mediante Render, demostrando integración frontend + backend y ciclo de despliegue continuo.",
+    category: "fullstack",
+    technologies: ["JavaScript", "HTML5", "CSS3", "Node.js", "Render"],
+    githubUrl: "https://github.com/JuanBerro-back/pokepoke",
+    liveUrl: "https://pokepoke-i0ma.onrender.com/",
+    featured: true,
+    metrics: "Desplegado en producción con panel de administración funcional",
+    monkeyMascot: "⚡",
+    highlights: [
+      "Interfaz dinámica con datos de la PokeAPI",
+      "Panel de administración para gestión de contenido",
+      "Despliegue en la nube con Render"
+    ],
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "zupply",
+    title: "Zupply · Asset Manager 🧰",
+    shortDescription: "Aplicación TypeScript para la gestión de activos, con demo desplegada en Replit.",
+    fullDescription: "Proyecto personal desarrollado en TypeScript orientado a la gestión de activos y recursos. Cuenta con una demo funcional desplegada en Replit, mostrando buenas prácticas de tipado estático, arquitectura modular y despliegue ligero.",
+    category: "frontend",
+    technologies: ["TypeScript", "JavaScript", "HTML5", "CSS3", "Replit"],
+    githubUrl: "https://github.com/JuanBerro-back/zupply",
+    liveUrl: "https://replit.com/@jdbpberroteran/Asset-Manager-1",
+    featured: true,
+    metrics: "Demo funcional desplegada y mantenida en Replit",
+    monkeyMascot: "🧰",
+    highlights: [
+      "Modelos tipados con TypeScript",
+      "Gestión de activos, inventario y recursos",
+      "Demo pública desplegada en Replit"
+    ],
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "restaurante-validacion",
+    title: "Restaurante con Validación 🍽️",
+    shortDescription: "Web para restaurante con formularios validados en JavaScript y diseño responsivo.",
+    fullDescription: "Página web corporativa para restaurante con énfasis en formularios de reserva validados del lado del cliente con JavaScript. Incluye maquetación responsiva, estructura semántica y buenas prácticas de accesibilidad en HTML5 y CSS3.",
+    category: "frontend",
+    technologies: ["JavaScript", "HTML5", "CSS3"],
+    githubUrl: "https://github.com/JuanBerro-back/restaurante-con-validacion",
+    liveUrl: "https://github.com/JuanBerro-back/restaurante-con-validacion",
+    featured: false,
+    metrics: "Formularios 100% validados con feedback en tiempo real",
+    monkeyMascot: "🍽️",
+    highlights: [
+      "Validación de formularios con JavaScript puro",
+      "Diseño 100% responsivo con CSS3",
+      "Estructura semántica y accesible"
+    ],
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "pagina-responsive",
+    title: "Página Responsive 📱",
+    shortDescription: "Sitio web completamente responsive construido con JavaScript moderno y técnicas de layout fluidas.",
+    fullDescription: "Proyecto enfocado en la creación de páginas web adaptables a cualquier dispositivo. Utiliza Flexbox, CSS Grid y media queries, e implementa interactividad con JavaScript para una experiencia de navegación fluida en móvil y escritorio.",
+    category: "frontend",
+    technologies: ["JavaScript", "HTML5", "CSS3"],
+    githubUrl: "https://github.com/JuanBerro-back/pagina-responsive-",
+    liveUrl: "https://github.com/JuanBerro-back/pagina-responsive-",
+    featured: true,
+    metrics: "El repositorio con más estrellas de mi perfil ⭐ 5",
+    monkeyMascot: "📱",
+    highlights: [
+      "Layouts fluidos con Flexbox y CSS Grid",
+      "Breakpoints optimizados para móvil, tablet y desktop",
+      "Interactividad dinámica con JavaScript"
+    ],
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "kitty-finanzas",
+    title: "Kitty Finanzas 💸🐱",
+    shortDescription: "Aplicación Python para control de finanzas personales, desplegada en la nube.",
+    fullDescription: "Herramienta de finanzas personales desarrollada en Python y desplegada en producción con Render. Permite registrar, organizar y visualizar movimientos económicos de forma sencilla, aplicando buenas prácticas de backend y bases de datos.",
+    category: "backend",
+    technologies: ["Python", "Flask", "SQL", "Render"],
+    githubUrl: "https://github.com/JuanBerro-back/kitty-finanzas",
+    liveUrl: "https://kitty-finanzas.onrender.com/",
+    featured: false,
+    metrics: "Aplicación funcional desplegada en producción",
+    monkeyMascot: "💸",
+    highlights: [
+      "Registro y control de ingresos y gastos",
+      "Backend en Python con persistencia de datos",
+      "Despliegue continuo en Render"
+    ],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "trycatch",
+    title: "Try/Catch CSS Lab 🧪",
+    shortDescription: "Laboratorio visual de experimentación con CSS3 moderno, publicado con GitHub Pages.",
+    fullDescription: "Colección de experimentos y componentes visuales construida con CSS3 puro y publicada en GitHub Pages. Sirve como demostración de dominio en animaciones, transiciones, gradientes y técnicas avanzadas de estilizado.",
+    category: "frontend",
+    technologies: ["CSS3", "HTML5", "GitHub Pages"],
+    githubUrl: "https://github.com/JuanBerro-back/trycatch",
+    liveUrl: "https://github.com/JuanBerro-back/trycatch",
+    featured: false,
+    metrics: "Publicado en GitHub Pages con técnicas CSS avanzadas",
+    monkeyMascot: "🧪",
+    highlights: [
+      "Animaciones y transiciones con CSS3",
+      "Experimentos tipográficos y visuales",
+      "Publicación y hosting con GitHub Pages"
+    ],
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80"
   }
 ];
 

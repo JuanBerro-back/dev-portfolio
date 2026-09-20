@@ -295,3 +295,19 @@ section {
   section { padding: 3.5rem 0; }
   .section-title { font-size: 1.9rem; }
 }
+
+/* GitHub Stats Section */
+@keyframes pulseSkeleton {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.skeleton {
+  animation: pulseSkeleton 1.4s ease-in-out infinite;
+}
+
+.repo-row:hover {
+  border-color: var(--jungle-emerald) !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+  transform: translateX(3px);
+}

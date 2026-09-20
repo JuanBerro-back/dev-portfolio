@@ -47,5 +47,8 @@ export interface ProfileInfo {
   yearsOfExperience: number;
   completedProjects: number;
   contributions: number;
+  githubRepos: number;
+  githubFollowers: number;
+  githubStars: number;
   jungleMotto: string;
 }

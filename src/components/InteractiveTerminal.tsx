@@ -44,6 +44,7 @@ export const InteractiveTerminal: React.FC = () => {
         output = (
           <div style={{ display: 'grid', gap: '0.4rem', color: 'var(--text-muted)' }}>
             <p><span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>monito</span> - Mensaje del monito guardián de la selva 🐒</p>
+            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>stats</span> - Estadísticas reales de GitHub @JuanBerro-back 📊</p>
             <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>skills</span> - Lista de lenguajes y frameworks (TypeScript, Python, React, etc.)</p>
             <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>projects</span> - Ver los repositorios de GitHub reales</p>
             <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>banana</span> - ¡Premio especial de banana! 🍌</p>
@@ -70,6 +71,25 @@ export const InteractiveTerminal: React.FC = () => {
         output = (
           <div style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>
             🍌 🍌 🍌 ¡Has obtenido una súper banana de código limpio! +100 XP en Python & TypeScript.
+          </div>
+        );
+        break;
+
+      case 'stats':
+        output = (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.6rem' }}>
+            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>📦 Repos públicos</span>: {profileData.githubRepos}
+            </div>
+            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>⭐ Estrellas totales</span>: {profileData.githubStars}+
+            </div>
+            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>🧑‍🤝‍🧑 Seguidores</span>: {profileData.githubFollowers}
+            </div>
+            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>⚡ Stack</span>: TypeScript · Python · React · Node.js
+            </div>
           </div>
         );
         break;
