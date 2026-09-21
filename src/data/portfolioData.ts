@@ -4,7 +4,7 @@ export const profileData: ProfileInfo = {
   name: "Juan Berro",
   title: "Ingeniero de Software Full-Stack",
   location: "América Latina · Trabajo remoto",
-  email: "juan.berro.dev@example.com",
+  email: "jdbpberroteran@gmail.com",
   github: "https://github.com/JuanBerro-back",
   githubUsername: "JuanBerro-back",
   linkedin: "https://linkedin.com/in/juan-berro",
@@ -212,13 +212,14 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     id: "exp-2",
-    role: "Formación en Desarrollo Web",
-    company: "Formación universitaria y proyectos propios",
-    period: "2021 - 2023",
-    description: "Especialización en lógica de programación, bases de datos relacionales y desarrollo ágil como base de mi trabajo actual.",
+    role: "Análisis y Desarrollo de Software",
+    company: "SENA · Servicio Nacional de Aprendizaje",
+    period: "En curso",
+    description: "Formación como Tecnólogo en Análisis y Desarrollo de Software, con foco en lógica de programación, modelado de bases de datos y buenas prácticas de desarrollo.",
     achievements: [
-      "Construcción de herramientas web optimizadas con JavaScript, HTML5 y CSS3",
-      "Integración de APIs REST y servicios en la nube"
+      "Fundamentos sólidos en lógica de programación y algoritmos",
+      "Desarrollo de aplicaciones web con JavaScript, HTML5 y CSS3",
+      "Modelado de bases de datos relacionales y consultas SQL"
     ],
     skills: ["JavaScript", "HTML5", "CSS3", "SQL", "Git"],
     type: "education"
