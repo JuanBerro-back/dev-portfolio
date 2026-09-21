@@ -26,44 +26,49 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact">
       <div className="container">
-        <h2 className="section-title">Trabajemos <span className="gradient-text">Juntos</span></h2>
+        <span className="eyebrow">Contacto · 06</span>
+        <h2 className="section-title">
+          Trabajemos <span className="gradient-text">juntos</span>
+        </h2>
         <p className="section-subtitle">
-          ¿Tienes una idea, un proyecto o una propuesta laboral? Ponte en contacto conmigo y conversemos.
+          ¿Tienes un proyecto en mente, una posición abierta o simplemente quieres
+          conversar sobre tecnología? Escríbeme y con gusto conversamos.
         </p>
 
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2.5rem',
+          gap: '2rem',
           maxWidth: '1000px',
           margin: '0 auto'
         }}>
-          
-          {/* Left Info Card */}
-          <div className="glass-card" style={{ padding: '2.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+
+          {/* Info */}
+          <div className="glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem' }}>Contacto Directo</h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '2rem' }}>
-                Estoy disponible para roles Full-Stack, desarrollo de APIs, liderazgo técnico en proyectos o consultorías de arquitectura web.
+              <h3 style={{ fontSize: '1.45rem', marginBottom: '0.9rem' }}>Contacto directo</h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '1.8rem' }}>
+                Estoy abierto a roles full-stack, desarrollo de APIs, productos nuevos
+                y proyectos donde pueda aportar de verdad.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', marginBottom: '1.8rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{
                     width: '42px',
                     height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(0, 242, 254, 0.1)',
+                    background: 'var(--accent-soft)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--primary-cyan)'
+                    color: 'var(--accent)'
                   }}>
                     <Mail size={20} />
                   </div>
                   <div>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Email Profesional</span>
-                    <span style={{ fontSize: '0.98rem', fontWeight: 600 }}>{profileData.email}</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)', display: 'block' }}>Email profesional</span>
+                    <span style={{ fontSize: '0.96rem', fontWeight: 600 }}>{profileData.email}</span>
                   </div>
                 </div>
 
@@ -72,31 +77,30 @@ export const Contact: React.FC = () => {
                     width: '42px',
                     height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(168, 85, 247, 0.1)',
+                    background: 'var(--accent-soft)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent-purple)'
+                    color: 'var(--accent)'
                   }}>
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Ubicación</span>
-                    <span style={{ fontSize: '0.98rem', fontWeight: 600 }}>{profileData.location}</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)', display: 'block' }}>Ubicación</span>
+                    <span style={{ fontSize: '0.96rem', fontWeight: 600 }}>{profileData.location}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Quick Copy Button & Social Links */}
             <div>
               <button
                 onClick={handleCopyEmail}
                 className="btn btn-outline"
-                style={{ width: '100%', marginBottom: '1.5rem', justifyContent: 'center' }}
+                style={{ width: '100%', marginBottom: '1.4rem', justifyContent: 'center' }}
               >
-                {copied ? <Check size={18} color="var(--accent-emerald)" /> : <Copy size={18} />}
-                <span>{copied ? '¡Email Copiado al Portapapeles!' : 'Copiar Email Directo'}</span>
+                {copied ? <Check size={17} color="var(--positive)" /> : <Copy size={17} color="var(--accent)" />}
+                <span>{copied ? 'Email copiado al portapapeles' : 'Copiar mi email'}</span>
               </button>
 
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -104,21 +108,21 @@ export const Contact: React.FC = () => {
                   href={profileData.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="GitHub @JuanBerro-back"
                   style={{
                     width: '44px',
                     height: '44px',
                     borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-color)',
+                    background: 'var(--bg)',
+                    border: '1px solid var(--border-strong)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--text-main)',
+                    color: 'var(--text-secondary)',
                     transition: 'all 0.2s ease'
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--primary-cyan)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
-                  title="GitHub @JuanBerro-back"
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
                 >
                   <Github size={20} />
                 </a>
@@ -127,32 +131,31 @@ export const Contact: React.FC = () => {
                   href={profileData.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="LinkedIn de Juan Berro"
                   style={{
                     width: '44px',
                     height: '44px',
                     borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-color)',
+                    background: 'var(--bg)',
+                    border: '1px solid var(--border-strong)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--text-main)',
+                    color: 'var(--text-secondary)',
                     transition: 'all 0.2s ease'
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--primary-blue)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
-                  title="LinkedIn Juan Berro"
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
                 >
                   <Linkedin size={20} />
                 </a>
               </div>
             </div>
-
           </div>
 
-          {/* Right Form Card */}
-          <div className="glass-card" style={{ padding: '2.2rem' }}>
-            <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem' }}>Envíame un Mensaje</h3>
+          {/* Formulario */}
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <h3 style={{ fontSize: '1.45rem', marginBottom: '1.4rem' }}>Envíame un mensaje</h3>
 
             {submitted ? (
               <div style={{
@@ -167,97 +170,63 @@ export const Contact: React.FC = () => {
                   width: '60px',
                   height: '60px',
                   borderRadius: '50%',
-                  background: 'rgba(16, 185, 129, 0.15)',
-                  border: '1px solid var(--accent-emerald)',
+                  background: 'var(--positive-soft)',
+                  border: '1px solid var(--positive)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <Check size={32} color="var(--accent-emerald)" />
+                  <Check size={32} color="var(--positive)" />
                 </div>
-                <h4 style={{ fontSize: '1.3rem', color: '#ffffff' }}>¡Mensaje Enviado con Éxito!</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                  Gracias por comunicarte, me pondré en contacto contigo lo antes posible.
+                <h4 style={{ fontSize: '1.25rem', margin: 0 }}>¡Mensaje enviado!</h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0 }}>
+                  Gracias por escribirme. Te responderé lo antes posible.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Tu Nombre
-                  </label>
+                  <label className="field-label">Tu nombre</label>
                   <input
                     type="text"
                     required
+                    className="field-input"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    placeholder="Ej. María García"
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid var(--border-color)',
-                      color: '#ffffff',
-                      outline: 'none',
-                      fontSize: '0.95rem'
-                    }}
+                    placeholder="Tu nombre"
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Correo Electrónico
-                  </label>
+                  <label className="field-label">Correo electrónico</label>
                   <input
                     type="email"
                     required
+                    className="field-input"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="nombre@empresa.com"
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid var(--border-color)',
-                      color: '#ffffff',
-                      outline: 'none',
-                      fontSize: '0.95rem'
-                    }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Mensaje
-                  </label>
+                  <label className="field-label">Mensaje</label>
                   <textarea
                     required
                     rows={4}
+                    className="field-input"
+                    style={{ resize: 'vertical' }}
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    placeholder="Hola Juan, me gustaría conversar acerca de un proyecto..."
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid var(--border-color)',
-                      color: '#ffffff',
-                      outline: 'none',
-                      fontSize: '0.95rem',
-                      resize: 'vertical'
-                    }}
+                    placeholder="Hola Juan, me gustaría hablar contigo sobre..."
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                  <Send size={18} /> Enviar Mensaje
+                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.4rem' }}>
+                  <Send size={17} /> Enviar mensaje
                 </button>
               </form>
             )}
-
           </div>
 
         </div>

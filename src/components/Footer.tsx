@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Heart } from 'lucide-react';
+import { ArrowUp, Github } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -9,14 +9,14 @@ export const Footer: React.FC = () => {
 
   return (
     <footer style={{
-      borderTop: '1px solid var(--border-color)',
+      borderTop: '1px solid var(--border)',
       padding: '3rem 0 2rem 0',
-      background: 'rgba(7, 19, 14, 0.95)',
+      background: 'var(--bg-alt)',
       color: 'var(--text-muted)',
       fontSize: '0.9rem'
     }}>
       <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        
+
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -24,73 +24,77 @@ export const Footer: React.FC = () => {
           justifyContent: 'space-between',
           gap: '1.5rem'
         }}>
-          {/* Brand */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 700, fontSize: '1.2rem', color: '#ffffff' }}>
+          {/* Marca */}
+          <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontWeight: 700, fontSize: '1.15rem', color: 'var(--text)' }}>
             <div style={{
               width: '36px',
               height: '36px',
               borderRadius: '10px',
-              background: 'var(--grad-jungle)',
+              background: 'var(--grad-accent)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#07130e',
-              fontSize: '1.2rem'
+              color: '#ffffff',
+              fontFamily: 'var(--font-heading)',
+              fontStyle: 'italic',
+              fontSize: '1rem'
             }}>
-              🐒
+              jb
             </div>
-            <span>Juan Berro 🌴</span>
-          </div>
+            <span>Juan Berro</span>
+          </a>
 
-          {/* Social Links */}
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <a href="#hero">Inicio</a>
-            <a href="#about">Habilidades</a>
-            <a href="#projects">Proyectos</a>
-            <a href={profileData.github} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--jungle-emerald)' }}>
+          {/* Enlaces */}
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="#about" style={{ transition: 'color 0.2s ease' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}>Habilidades</a>
+            <a href="#projects" style={{ transition: 'color 0.2s ease' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}>Proyectos</a>
+            <a
+              href={profileData.github}
+              target="_blank"
+              rel="noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent-strong)', fontWeight: 600 }}
+            >
               <Github size={16} /> GitHub @JuanBerro-back
             </a>
           </div>
 
-          {/* Back to top button */}
+          {/* Volver arriba */}
           <button
             onClick={scrollToTop}
+            title="Volver arriba"
             style={{
-              background: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid var(--border-color)',
-              color: 'var(--text-main)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border-strong)',
+              color: 'var(--text)',
               padding: '0.6rem',
-              borderRadius: '12px',
+              borderRadius: '10px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--jungle-emerald)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
-            title="Volver arriba"
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.color = 'var(--text)'; }}
           >
-            <ArrowUp size={20} />
+            <ArrowUp size={19} />
           </button>
         </div>
 
-        {/* Bottom Line */}
+        {/* Línea final */}
         <div style={{
           textAlign: 'center',
           paddingTop: '1.5rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-          fontSize: '0.88rem',
+          borderTop: '1px solid var(--border)',
+          fontSize: '0.87rem',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: '1rem'
         }}>
-          <span>© {new Date().getFullYear()} Juan Berro. Todos los derechos reservados. 🐒</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            Diseñado con <Heart size={15} color="var(--berry-pink)" fill="var(--berry-pink)" /> en React + TypeScript con temática de Selva. 🌴
-          </span>
+          <span>© {new Date().getFullYear()} Juan Berro. Todos los derechos reservados.</span>
+          <span>Construido con React y TypeScript.</span>
         </div>
 
       </div>

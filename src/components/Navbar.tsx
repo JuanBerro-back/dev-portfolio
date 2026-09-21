@@ -32,13 +32,13 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: '🌴 Inicio', href: '#hero', id: 'hero' },
-    { name: '🐒 Sobre Mí', href: '#about', id: 'about' },
-    { name: '🍌 Proyectos', href: '#projects', id: 'projects' },
-    { name: '📊 GitHub', href: '#github', id: 'github' },
-    { name: '💻 Terminal CLI', href: '#terminal', id: 'terminal' },
-    { name: '🌿 Trayectoria', href: '#experience', id: 'experience' },
-    { name: '📩 Contacto', href: '#contact', id: 'contact' },
+    { name: 'Inicio', href: '#hero', id: 'hero' },
+    { name: 'Sobre mí', href: '#about', id: 'about' },
+    { name: 'Proyectos', href: '#projects', id: 'projects' },
+    { name: 'GitHub', href: '#github', id: 'github' },
+    { name: 'Terminal', href: '#terminal', id: 'terminal' },
+    { name: 'Trayectoria', href: '#experience', id: 'experience' },
+    { name: 'Contacto', href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -50,44 +50,46 @@ export const Navbar: React.FC = () => {
         right: 0,
         zIndex: 100,
         transition: 'all 0.3s ease',
-        background: isScrolled ? 'rgba(7, 19, 14, 0.9)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid transparent',
-        padding: isScrolled ? '0.8rem 0' : '1.4rem 0',
+        background: isScrolled ? 'rgba(246, 247, 245, 0.92)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(14px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(14px)' : 'none',
+        borderBottom: isScrolled ? '1px solid var(--border)' : '1px solid transparent',
+        padding: isScrolled ? '0.7rem 0' : '1.1rem 0',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Brand Logo with Monkey & Jungle Leaf */}
-        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 700, fontSize: '1.25rem' }}>
+        {/* Marca */}
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontWeight: 700, fontSize: '1.15rem', color: 'var(--text)' }}>
           <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'var(--grad-jungle)',
+            width: '40px',
+            height: '40px',
+            borderRadius: '11px',
+            background: 'var(--grad-accent)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#07130e',
-            fontSize: '1.4rem'
+            color: '#ffffff',
+            fontFamily: 'var(--font-heading)',
+            fontStyle: 'italic',
+            fontSize: '1.15rem',
+            boxShadow: '0 4px 12px rgba(15, 118, 110, 0.3)'
           }}>
-            🐒
+            jb
           </div>
-          <span style={{ fontFamily: 'var(--font-heading)' }}>
-            Juan<span style={{ color: 'var(--jungle-emerald)' }}>.Berro</span> 🌴
-          </span>
+          <span>Juan Berro</span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
-          <ul style={{ display: 'flex', gap: '1.6rem', listStyle: 'none' }}>
+        {/* Navegación desktop */}
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '1.8rem' }} className="desktop-nav">
+          <ul style={{ display: 'flex', gap: '1.4rem', listStyle: 'none' }}>
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={link.href}
                   style={{
                     fontSize: '0.92rem',
-                    fontWeight: 600,
-                    color: activeSection === link.id ? 'var(--jungle-emerald)' : 'var(--text-muted)',
+                    fontWeight: 500,
+                    color: activeSection === link.id ? 'var(--accent-strong)' : 'var(--text-muted)',
                     transition: 'color 0.2s ease',
                     position: 'relative',
                     paddingBottom: '4px'
@@ -102,9 +104,8 @@ export const Navbar: React.FC = () => {
                         left: 0,
                         right: 0,
                         height: '2px',
-                        background: 'var(--jungle-emerald)',
-                        borderRadius: '2px',
-                        boxShadow: '0 0 8px var(--jungle-emerald)'
+                        background: 'var(--accent)',
+                        borderRadius: '2px'
                       }}
                     />
                   )}
@@ -113,53 +114,51 @@ export const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          {/* Social Quick Action */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '1.2rem' }}>
-            <a
-              href={profileData.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Perfil de GitHub @JuanBerro-back"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.45rem 0.9rem',
-                borderRadius: '10px',
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid var(--border-color)',
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                color: 'var(--text-main)',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--jungle-emerald)')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
-            >
-              <Github size={16} color="var(--jungle-emerald)" />
-              <span>@JuanBerro-back</span>
-            </a>
-          </div>
+          <a
+            href={profileData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Perfil de GitHub @JuanBerro-back"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.42rem 1rem',
+              borderRadius: '9px',
+              background: 'var(--surface)',
+              border: '1px solid var(--border-strong)',
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              color: 'var(--text)',
+              boxShadow: 'var(--shadow-sm)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-strong)')}
+          >
+            <Github size={16} color="var(--accent)" />
+            <span>GitHub</span>
+          </a>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Botón menú móvil */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
             display: 'none',
             background: 'transparent',
             border: 'none',
-            color: 'var(--text-main)',
+            color: 'var(--text)',
             cursor: 'pointer'
           }}
           className="mobile-toggle"
-          aria-label="Alternar Menú"
+          aria-label="Abrir menú"
         >
           {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Menú móvil */}
       {mobileMenuOpen && (
         <div
           style={{
@@ -167,13 +166,13 @@ export const Navbar: React.FC = () => {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'var(--bg-glass)',
-            backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid var(--border-color)',
+            background: 'rgba(246, 247, 245, 0.98)',
+            backdropFilter: 'blur(18px)',
+            borderBottom: '1px solid var(--border)',
             padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: '0.8rem'
           }}
         >
           {navLinks.map((link) => (
@@ -182,10 +181,10 @@ export const Navbar: React.FC = () => {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               style={{
-                fontSize: '1.1rem',
+                fontSize: '1.05rem',
                 fontWeight: 600,
-                color: activeSection === link.id ? 'var(--jungle-emerald)' : 'var(--text-main)',
-                padding: '0.5rem 0'
+                color: activeSection === link.id ? 'var(--accent-strong)' : 'var(--text)',
+                padding: '0.4rem 0'
               }}
             >
               {link.name}
@@ -202,13 +201,13 @@ export const Navbar: React.FC = () => {
               gap: '0.5rem',
               padding: '0.8rem',
               borderRadius: '10px',
-              background: 'var(--grad-jungle)',
-              color: '#07130e',
-              fontWeight: 700,
+              background: 'var(--accent)',
+              color: '#ffffff',
+              fontWeight: 600,
               marginTop: '0.5rem'
             }}
           >
-            <Github size={18} /> Ver GitHub @JuanBerro-back 🐒
+            <Github size={18} /> Ver perfil de GitHub
           </a>
         </div>
       )}

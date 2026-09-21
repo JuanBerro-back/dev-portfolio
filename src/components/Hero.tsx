@@ -1,136 +1,120 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Mail, Terminal, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail, Terminal } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
   const roles = [
-    "Full-Stack Developer 🐒",
-    "Python & FastAPI Explorer 🐍",
-    "TypeScript & React Specialist ⚡",
-    "Tailwind & Node.js Craftsman 🌿"
+    "Ingeniero de Software Full-Stack",
+    "Backend con Python, FastAPI y Node.js",
+    "Frontend con TypeScript y React",
+    "APIs, automatización y productos en la nube"
   ];
-  
+
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 3200);
     return () => clearInterval(interval);
   }, []);
 
+  const skills = ['TypeScript', 'Python', 'React', 'Node.js', 'FastAPI', 'Tailwind CSS', 'Git'];
+
+  const metrics = [
+    { value: `${profileData.yearsOfExperience}+`, label: 'Años de experiencia' },
+    { value: String(profileData.completedProjects), label: 'Proyectos construidos' },
+    { value: String(profileData.githubRepos), label: 'Repositorios públicos' },
+    { value: `${profileData.githubStars}+`, label: 'Estrellas en GitHub' },
+  ];
+
   return (
     <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '6rem' }}>
-      {/* Background Glow */}
-      <div className="glow-jungle" style={{ top: '15%', left: '10%' }}></div>
-      <div className="glow-jungle" style={{ bottom: '20%', right: '10%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)' }}></div>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
-        <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
-          
-          {/* Cute Monkey Mascot Badge */}
-          <div style={{ marginBottom: '1.5rem', display: 'inline-block' }}>
+          {/* Estado */}
+          <div style={{ marginBottom: '1.8rem', display: 'inline-block' }}>
             <div className="badge-status">
               <span className="dot-ping"></span>
-              <span>🐒 {profileData.jungleMotto}</span>
+              <span>Disponible para nuevos proyectos</span>
             </div>
           </div>
 
-          {/* Main Title */}
-          <h1 style={{ fontSize: 'clamp(2.5rem, 6.5vw, 4.5rem)', marginBottom: '1rem', letterSpacing: '-0.02em' }}>
-            ¡Hola! Soy <span className="gradient-text">{profileData.name}</span> 🐒🌴
+          {/* Titular */}
+          <h1 style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', marginBottom: '1rem', letterSpacing: '-0.025em' }}>
+            Hola, soy <span className="gradient-text">{profileData.name}</span>
           </h1>
 
-          {/* Rotating Subtitle / Role */}
+          {/* Rol rotativo */}
           <div style={{
-            fontSize: 'clamp(1.2rem, 3.5vw, 1.8rem)',
-            color: 'var(--text-muted)',
+            fontSize: 'clamp(1.15rem, 3vw, 1.55rem)',
+            color: 'var(--text-secondary)',
             fontWeight: 600,
-            marginBottom: '1.5rem',
-            height: '2.4rem',
+            marginBottom: '1.4rem',
+            height: '2.2rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '0.5rem'
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '-0.01em'
           }}>
-            <Sparkles size={22} color="var(--banana-gold)" />
-            <span style={{ color: 'var(--banana-gold)', fontFamily: 'var(--font-mono)' }}>
-              {roles[currentRoleIndex]}
-            </span>
+            <span style={{ color: 'var(--accent)' }}>{roles[currentRoleIndex]}</span>
           </div>
 
-          {/* Bio text */}
+          {/* Bio */}
           <p style={{
-            fontSize: '1.15rem',
+            fontSize: '1.1rem',
             color: 'var(--text-muted)',
-            lineHeight: 1.7,
-            marginBottom: '2.5rem',
+            lineHeight: 1.75,
+            marginBottom: '2.4rem',
             maxWidth: '720px',
             marginInline: 'auto'
           }}>
             {profileData.bio}
           </p>
 
-          {/* Tech Badges Row */}
+          {/* Chips de tecnología */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: '0.5rem',
             justifyContent: 'center',
-            marginBottom: '2.8rem'
+            marginBottom: '2.6rem'
           }}>
-            {['TypeScript ⚡', 'Python 🐍', 'React ⚛️', 'Node.js 🟩', 'Tailwind 🎨', 'JavaScript 🟨', 'HTML5 & CSS3 🌐'].map((tech, idx) => (
-              <span key={idx} className="code-tag" style={{ fontSize: '0.9rem', padding: '0.3rem 0.8rem' }}>
+            {skills.map((tech, idx) => (
+              <span key={idx} className="code-tag" style={{ fontSize: '0.88rem', padding: '0.3rem 0.85rem' }}>
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Action CTA Buttons */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.2rem', justifyContent: 'center', marginBottom: '3.5rem' }}>
+          {/* CTAs */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginBottom: '3.5rem' }}>
             <a href="#projects" className="btn btn-primary">
-              🍌 Ver Mis Proyectos <ArrowRight size={18} />
+              Ver mis proyectos <ArrowRight size={17} />
             </a>
-            
-            <a href="#terminal" className="btn btn-banana">
-              🐒 Consola Monito CLI <Terminal size={18} />
+            <a href="#terminal" className="btn btn-outline">
+              <Terminal size={17} color="var(--accent)" /> Terminal interactivo
             </a>
-
             <a href="#contact" className="btn btn-outline">
-              📩 Contactar a Juan <Mail size={18} color="var(--jungle-emerald)" />
+              <Mail size={17} color="var(--accent)" /> Hablemos
             </a>
           </div>
 
-          {/* Metrics Quick Strip */}
+          {/* Métricas */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1.4rem',
-            marginTop: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '1.2rem',
+            marginTop: '1.5rem'
           }}>
-            <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>💼 🚀</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--jungle-emerald)', marginBottom: '0.2rem' }}>+{profileData.yearsOfExperience} Años</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Experiencia en Desarrollo</p>
-            </div>
-            
-            <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>📦 🐙</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--banana-gold)', marginBottom: '0.2rem' }}>{profileData.githubRepos}</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Repos Públicos en GitHub</p>
-            </div>
-
-            <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>⭐ ⭐</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--banana-gold)', marginBottom: '0.2rem' }}>{profileData.githubStars}+</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Estrellas Totales</p>
-            </div>
-
-            <div className="glass-card" style={{ padding: '1.4rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>🧑‍🤝‍🧑 👀</div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--jungle-lime)', marginBottom: '0.2rem' }}>{profileData.githubFollowers}</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Seguidores en GitHub</p>
-            </div>
+            {metrics.map((m) => (
+              <div key={m.label} className="glass-card" style={{ padding: '1.3rem', textAlign: 'center' }}>
+                <h3 style={{ fontSize: '1.9rem', color: 'var(--accent-strong)', marginBottom: '0.15rem' }}>{m.value}</h3>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', margin: 0 }}>{m.label}</p>
+              </div>
+            ))}
           </div>
 
         </div>

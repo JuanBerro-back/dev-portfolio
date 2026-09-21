@@ -125,7 +125,7 @@ const LANG_COLORS: Record<string, string> = {
 const describe = (repo: GitHubRepoData): string =>
   repo.description && repo.description.trim()
     ? repo.description.trim()
-    : 'Proyecto open source de Juan Berroteran en GitHub.';
+    : 'Proyecto open source de Juan Berro en GitHub.';
 
 export const GithubStats: React.FC = () => {
   const [user, setUser] = useState<GitHubUserData | null>(null);
@@ -196,58 +196,50 @@ export const GithubStats: React.FC = () => {
     : '';
 
   const statTiles = [
-    { label: 'Repos Públicos', value: user?.public_repos, icon: <BookOpen size={20} />, color: 'var(--jungle-emerald)' },
-    { label: 'Seguidores', value: user?.followers, icon: <Users size={20} />, color: 'var(--primary-cyan)' },
-    { label: 'Siguiendo', value: user?.following, icon: <UserPlus size={20} />, color: 'var(--accent-purple)' },
-    { label: 'Estrellas Totales', value: totalStars, icon: <Star size={20} />, color: 'var(--banana-gold)' },
-    { label: 'Forks', value: totalForks, icon: <GitFork size={20} />, color: 'var(--berry-pink)' },
+    { label: 'Repos públicos', value: user?.public_repos, icon: <BookOpen size={20} /> },
+    { label: 'Seguidores', value: user?.followers, icon: <Users size={20} /> },
+    { label: 'Siguiendo', value: user?.following, icon: <UserPlus size={20} /> },
+    { label: 'Estrellas totales', value: totalStars, icon: <Star size={20} /> },
+    { label: 'Forks', value: totalForks, icon: <GitFork size={20} /> },
   ];
 
   return (
     <section id="github">
       <div className="container">
+        <span className="eyebrow">GitHub · 03</span>
         <h2 className="section-title">
-          GitHub en <span className="gradient-text">Vivo 📊</span>
+          Mi actividad en <span className="gradient-text">GitHub</span>
         </h2>
         <p className="section-subtitle">
-          Estadísticas reales de mi perfil @{profileData.githubUsername}, obtenidas
-          directamente desde la API pública de GitHub. Proyectos, estrellas y lenguajes
-          más utilizados en mi trabajo diario.
+          Estadísticas reales de @{profileData.githubUsername}, obtenidas directamente
+          desde la API pública de GitHub. Proyectos, estrellas y los lenguajes que más
+          uso en mi trabajo diario.
         </p>
 
         {isLive && (
-          <p style={{ textAlign: 'center', margin: '-1.5rem 0 2.5rem', fontSize: '0.85rem', color: 'var(--jungle-emerald)' }}>
-            ● Sincronizado en tiempo real con GitHub
+          <p style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '0.85rem', color: 'var(--accent-strong)' }}>
+            Sincronizado en tiempo real con GitHub
           </p>
         )}
 
-        {/* ===== Profile Card ===== */}
+        {/* Perfil */}
         <div
           className="glass-card"
           style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto 2rem' }}
         >
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              gap: '1.6rem',
-            }}
-          >
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.6rem' }}>
             {isLoading || !user ? (
               <div
                 className="skeleton"
                 style={{
-                  width: '104px',
-                  height: '104px',
-                  borderRadius: '22px',
-                  border: '3px solid var(--jungle-emerald)',
-                  background: 'rgba(255,255,255,0.05)',
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '18px',
+                  flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-dim)',
-                  flexShrink: 0,
+                  color: 'var(--text-dim)'
                 }}
               >
                 <Github size={40} />
@@ -257,11 +249,11 @@ export const GithubStats: React.FC = () => {
                 src={user.avatar_url}
                 alt={`Avatar de ${profileData.name}`}
                 style={{
-                  width: '104px',
-                  height: '104px',
-                  borderRadius: '22px',
-                  border: '3px solid var(--jungle-emerald)',
-                  boxShadow: 'var(--shadow-emerald)',
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '18px',
+                  border: '3px solid var(--accent-border)',
+                  boxShadow: 'var(--shadow-sm)',
                   objectFit: 'cover',
                   flexShrink: 0,
                 }}
@@ -270,14 +262,12 @@ export const GithubStats: React.FC = () => {
 
             <div style={{ flex: 1, minWidth: '240px' }}>
               <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem' }}>
-                <h3 style={{ fontSize: '1.7rem', color: '#ffffff' }}>
-                  {user?.name || profileData.name}
-                </h3>
-                <span className="code-tag">@{user?.login || profileData.githubUsername}</span>
+                <h3 style={{ fontSize: '1.6rem', margin: 0 }}>{user?.name || profileData.name}</h3>
+                <span className="code-tag code-tag-accent">@{user?.login || profileData.githubUsername}</span>
               </div>
 
               {user?.bio && (
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', marginTop: '0.4rem' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.97rem', marginTop: '0.4rem' }}>
                   {user.bio}
                 </p>
               )}
@@ -287,17 +277,17 @@ export const GithubStats: React.FC = () => {
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: '1.2rem',
-                  marginTop: '0.8rem',
+                  marginTop: '0.7rem',
                   fontSize: '0.88rem',
                   color: 'var(--text-dim)',
                 }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <MapPin size={15} /> {user?.location || profileData.location}
+                  <MapPin size={15} color="var(--accent)" /> {user?.location || profileData.location}
                 </span>
                 {joinedLabel && (
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <CalendarDays size={15} /> {joinedLabel}
+                    <CalendarDays size={15} color="var(--accent)" /> {joinedLabel}
                   </span>
                 )}
               </div>
@@ -310,17 +300,17 @@ export const GithubStats: React.FC = () => {
               className="btn btn-primary"
               style={{ flexShrink: 0 }}
             >
-              <Github size={18} /> Ver Perfil Completo
+              <Github size={18} /> Ver perfil completo
             </a>
           </div>
         </div>
 
-        {/* ===== Stat Tiles ===== */}
+        {/* Tiles de estadísticas */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-            gap: '1.2rem',
+            gap: '1.1rem',
             maxWidth: '1000px',
             margin: '0 auto 3rem',
           }}
@@ -331,23 +321,22 @@ export const GithubStats: React.FC = () => {
                 style={{
                   width: '44px',
                   height: '44px',
-                  borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--border-color)',
+                  borderRadius: '11px',
+                  background: 'var(--accent-soft)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: tile.color,
+                  color: 'var(--accent)',
                   margin: '0 auto 0.8rem',
                 }}
               >
                 {tile.icon}
               </div>
               <div className={isLoading ? 'skeleton' : ''}>
-                <h3 style={{ fontSize: '2rem', color: '#ffffff', marginBottom: '0.1rem' }}>
+                <h3 style={{ fontSize: '1.9rem', color: 'var(--text)', marginBottom: '0.1rem' }}>
                   {isLoading ? '—' : tile.value}
                 </h3>
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500, margin: 0 }}>
                   {tile.label}
                 </p>
               </div>
@@ -355,7 +344,7 @@ export const GithubStats: React.FC = () => {
           ))}
         </div>
 
-        {/* ===== Languages + Top Repos ===== */}
+        {/* Lenguajes + repos destacados */}
         <div
           style={{
             display: 'grid',
@@ -365,35 +354,34 @@ export const GithubStats: React.FC = () => {
             margin: '0 auto',
           }}
         >
-          {/* Languages */}
-          <div className="glass-card" style={{ padding: '1.8rem' }}>
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.4rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <Star size={18} color="var(--banana-gold)" /> Stack más usado
+          {/* Lenguajes */}
+          <div className="glass-card" style={{ padding: '1.7rem' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.3rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <Star size={18} color="var(--amber)" /> Stack más usado
             </h3>
 
             {isLoading
               ? topLanguages.map((_, idx) => (
-                  <div key={idx} className="skeleton" style={{ height: '38px', marginBottom: '0.9rem', borderRadius: '8px', background: 'rgba(255,255,255,0.05)' }} />
+                  <div key={idx} className="skeleton" style={{ height: '38px', marginBottom: '0.9rem' }} />
                 ))
               : topLanguages.map(([lang, count]) => (
                   <div key={lang} style={{ marginBottom: '0.95rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.35rem', fontSize: '0.9rem' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
                         <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: LANG_COLORS[lang] || '#8b949e', display: 'inline-block' }} />
                         {lang}
                       </span>
-                      <span style={{ color: 'var(--banana-gold)', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+                      <span style={{ color: 'var(--accent-strong)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                         {count} repos
                       </span>
                     </div>
-                    <div style={{ height: '7px', width: '100%', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div className="progress-track">
                       <div
-                        className="lang-bar-fill"
                         style={{
                           height: '100%',
                           width: `${(count / maxLanguageCount) * 100}%`,
                           background: LANG_COLORS[lang] || '#8b949e',
-                          borderRadius: '4px',
+                          borderRadius: '999px',
                           transition: 'width 0.8s ease-out',
                         }}
                       />
@@ -401,24 +389,24 @@ export const GithubStats: React.FC = () => {
                   </div>
                 ))}
 
-            <div style={{ marginTop: '1rem', padding: '0.8rem 1rem', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.07)', border: '1px solid var(--border-color)' }}>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                <Github size={14} style={{ verticalAlign: 'text-bottom', marginRight: '0.3rem' }} color="var(--jungle-emerald)" />
-                <strong style={{ color: 'var(--text-main)' }}>JavaScript y TypeScript</strong> lideran mi actividad, seguidos de Python para automatización y APIs.
+            <div style={{ marginTop: '1rem', padding: '0.8rem 1rem', borderRadius: '10px', background: 'var(--accent-soft)', border: '1px solid var(--accent-border)' }}>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
+                <strong style={{ color: 'var(--accent-strong)' }}>JavaScript y TypeScript</strong> lideran mi
+                actividad, seguidos de Python para automatización y APIs.
               </p>
             </div>
           </div>
 
-          {/* Top Repos */}
-          <div className="glass-card" style={{ padding: '1.8rem' }}>
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.4rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <BookOpen size={18} color="var(--jungle-emerald)" /> Repositorios destacados
+          {/* Repos destacados */}
+          <div className="glass-card" style={{ padding: '1.7rem' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.3rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <BookOpen size={18} color="var(--accent)" /> Repositorios destacados
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
               {isLoading
                 ? Array.from({ length: 5 }).map((_, idx) => (
-                    <div key={idx} className="skeleton" style={{ height: '58px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)' }} />
+                    <div key={idx} className="skeleton" style={{ height: '58px' }} />
                   ))
                 : topRepos.map((repo) => (
                     <a
@@ -433,8 +421,8 @@ export const GithubStats: React.FC = () => {
                         gap: '0.8rem',
                         padding: '0.7rem 0.85rem',
                         borderRadius: '10px',
-                        background: 'rgba(255, 255, 255, 0.03)',
-                        border: '1px solid var(--border-color)',
+                        background: 'var(--bg)',
+                        border: '1px solid var(--border)',
                         transition: 'all 0.2s ease',
                       }}
                     >
@@ -450,7 +438,7 @@ export const GithubStats: React.FC = () => {
                       />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                          <span style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem', fontFamily: 'var(--font-mono)' }}>
+                          <span style={{ fontWeight: 700, color: 'var(--text)', fontSize: '0.95rem', fontFamily: 'var(--font-mono)' }}>
                             {repo.name}
                           </span>
                           {(repo.homepage || repo.language) && (
@@ -464,13 +452,13 @@ export const GithubStats: React.FC = () => {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '0.35rem', fontSize: '0.78rem', color: 'var(--text-dim)' }}>
                           <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                            <Star size={13} color="var(--banana-gold)" /> {repo.stargazers_count}
+                            <Star size={13} color="var(--amber)" /> {repo.stargazers_count}
                           </span>
                           <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                             <GitFork size={13} /> {repo.forks_count}
                           </span>
                           {repo.homepage && (
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--jungle-emerald)' }}>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--accent-strong)' }}>
                               <ExternalLink size={13} /> Demo
                             </span>
                           )}

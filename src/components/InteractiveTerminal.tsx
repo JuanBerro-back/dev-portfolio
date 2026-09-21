@@ -14,11 +14,11 @@ export const InteractiveTerminal: React.FC = () => {
       command: 'welcome',
       output: (
         <div>
-          <p style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>
-            🐒🌴 Bienvenido a la Consola Monito CLI de Juan Berro [v2.0.0 Jungle Edition]
+          <p style={{ color: 'var(--code-accent)', fontWeight: 700 }}>
+            Terminal de Juan Berro · v2.0
           </p>
-          <p style={{ color: 'var(--text-muted)' }}>
-            Escribe <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>help</span> o <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>monito</span> para explorar los comandos de la selva.
+          <p style={{ color: 'var(--code-muted)' }}>
+            Escribe <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>help</span> para ver los comandos disponibles.
           </p>
         </div>
       )
@@ -40,55 +40,48 @@ export const InteractiveTerminal: React.FC = () => {
 
     switch (cmd) {
       case 'help':
-      case 'ayuda':
         output = (
-          <div style={{ display: 'grid', gap: '0.4rem', color: 'var(--text-muted)' }}>
-            <p><span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>monito</span> - Mensaje del monito guardián de la selva 🐒</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>stats</span> - Estadísticas reales de GitHub @JuanBerro-back 📊</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>skills</span> - Lista de lenguajes y frameworks (TypeScript, Python, React, etc.)</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>projects</span> - Ver los repositorios de GitHub reales</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>banana</span> - ¡Premio especial de banana! 🍌</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>contact</span> - Canales de contacto directo</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>github</span> - Enlace directo al GitHub @JuanBerro-back</p>
-            <p><span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>clear</span> - Limpiar consola</p>
+          <div style={{ display: 'grid', gap: '0.35rem', color: 'var(--code-muted)' }}>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>whoami</span> - Presentación breve</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>stats</span> - Estadísticas de GitHub @{profileData.githubUsername}</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>skills</span> - Lenguajes y frameworks que uso</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>projects</span> - Proyectos públicos en GitHub</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>contact</span> - Canales de contacto</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>github</span> - Abrir mi perfil de GitHub</p>
+            <p><span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>clear</span> - Limpiar la terminal</p>
           </div>
         );
         break;
 
-      case 'monito':
-      case 'jungle':
+      case 'whoami':
         output = (
-          <div style={{ color: 'var(--text-main)', lineHeight: 1.6 }}>
-            <p style={{ fontSize: '1.2rem' }}>🐒 🌴 🍌 🌿 🐒</p>
-            <p style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>
-              "¡En la selva del software, Juan Berro salta entre TypeScript, Python y React sin caer jamás!"
+          <div style={{ color: 'var(--code-text)', lineHeight: 1.7 }}>
+            <p style={{ color: 'var(--code-accent)', fontWeight: 700 }}>
+              Juan Berro · Ingeniero de Software Full-Stack
             </p>
-          </div>
-        );
-        break;
-
-      case 'banana':
-        output = (
-          <div style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>
-            🍌 🍌 🍌 ¡Has obtenido una súper banana de código limpio! +100 XP en Python & TypeScript.
+            <p style={{ margin: 0 }}>
+              Construyo APIs, interfaces y productos confiables con Python, TypeScript,
+              React y Node.js. Me gusta el código claro, las decisiones simples y aprender
+              algo nuevo cada semana.
+            </p>
           </div>
         );
         break;
 
       case 'stats':
         output = (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.6rem' }}>
-            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>📦 Repos públicos</span>: {profileData.githubRepos}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', gap: '0.55rem' }}>
+            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 0.7rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>Repos públicos</span>: {profileData.githubRepos}
             </div>
-            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>⭐ Estrellas totales</span>: {profileData.githubStars}+
+            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 0.7rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>Estrellas</span>: {profileData.githubStars}+
             </div>
-            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>🧑‍🤝‍🧑 Seguidores</span>: {profileData.githubFollowers}
+            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 0.7rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>Seguidores</span>: {profileData.githubFollowers}
             </div>
-            <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>⚡ Stack</span>: TypeScript · Python · React · Node.js
+            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 0.7rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>Stack</span>: TypeScript · Python · React · Node.js
             </div>
           </div>
         );
@@ -96,10 +89,10 @@ export const InteractiveTerminal: React.FC = () => {
 
       case 'skills':
         output = (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.6rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', gap: '0.55rem' }}>
             {skillsData.map((s, idx) => (
-              <div key={idx} style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>{s.emoji} {s.name}</span>: {s.level}%
+              <div key={idx} style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 0.7rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>{s.name}</span>: {s.level}%
               </div>
             ))}
           </div>
@@ -111,10 +104,10 @@ export const InteractiveTerminal: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
             {projectsData.map((p, idx) => (
               <div key={idx}>
-                <span style={{ color: 'var(--banana-gold)', fontWeight: 700 }}>{p.title}</span>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>{p.shortDescription}</p>
-                <a href={p.githubUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--jungle-emerald)', fontSize: '0.85rem' }}>
-                  ➜ Repo: {p.githubUrl}
+                <span style={{ color: 'var(--code-accent)', fontWeight: 700 }}>{p.title}</span>
+                <p style={{ color: 'var(--code-muted)', fontSize: '0.86rem', margin: '0.1rem 0 0.2rem' }}>{p.shortDescription}</p>
+                <a href={p.githubUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--code-accent)', fontSize: '0.83rem', textDecoration: 'underline' }}>
+                  {p.githubUrl}
                 </a>
               </div>
             ))}
@@ -124,7 +117,7 @@ export const InteractiveTerminal: React.FC = () => {
 
       case 'contact':
         output = (
-          <div>
+          <div style={{ display: 'grid', gap: '0.2rem' }}>
             <p><strong>Email:</strong> {profileData.email}</p>
             <p><strong>GitHub:</strong> {profileData.github}</p>
             <p><strong>LinkedIn:</strong> {profileData.linkedin}</p>
@@ -134,7 +127,7 @@ export const InteractiveTerminal: React.FC = () => {
 
       case 'github':
         window.open(profileData.github, '_blank');
-        output = <p style={{ color: 'var(--jungle-emerald)' }}>Abriendo repositorio @JuanBerro-back...</p>;
+        output = <p style={{ color: 'var(--code-accent)' }}>Abriendo mi perfil de GitHub...</p>;
         break;
 
       case 'clear':
@@ -144,8 +137,8 @@ export const InteractiveTerminal: React.FC = () => {
 
       default:
         output = (
-          <p style={{ color: 'var(--berry-pink)' }}>
-            Comando no reconocido: '{cmd}'. Escribe <span style={{ color: 'var(--banana-gold)' }}>help</span> o <span style={{ color: 'var(--banana-gold)' }}>monito</span>.
+          <p style={{ color: '#fca5a5' }}>
+            Comando no reconocido: '{cmd}'. Escribe <span style={{ color: 'var(--code-accent)' }}>help</span> para ver la lista.
           </p>
         );
         break;
@@ -158,56 +151,36 @@ export const InteractiveTerminal: React.FC = () => {
   return (
     <section id="terminal">
       <div className="container">
-        <h2 className="section-title">Consola <span className="gradient-text">Monito CLI 🐒💻</span></h2>
+        <span className="eyebrow">Terminal · 04</span>
+        <h2 className="section-title">
+          Terminal <span className="gradient-text">interactivo</span>
+        </h2>
         <p className="section-subtitle">
-          Interactúa con los comandos de la selva para explorar mis habilidades en Python, TypeScript y React.
+          Una forma rápida de explorar mi perfil: escribe un comando y explora mis
+          habilidades, proyectos y estadísticas.
         </p>
 
-        <div className="glass-card" style={{
-          maxWidth: '850px',
-          margin: '0 auto',
-          borderRadius: '16px',
-          border: '1px solid rgba(16, 185, 129, 0.35)',
-          boxShadow: 'var(--shadow-emerald)',
-          background: '#07130e',
-          fontFamily: 'var(--font-mono)'
-        }}>
-          {/* Terminal Header */}
-          <div style={{
-            background: 'rgba(16, 185, 129, 0.08)',
-            padding: '0.8rem 1.4rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            borderBottom: '1px solid var(--border-color)'
-          }}>
+        <div className="terminal" style={{ maxWidth: '820px', margin: '0 auto' }}>
+          {/* Encabezado */}
+          <div className="terminal-header">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Circle size={12} fill="#ef4444" stroke="none" />
-              <Circle size={12} fill="#eab308" stroke="none" />
-              <Circle size={12} fill="#22c55e" stroke="none" />
-              <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginLeft: '0.6rem' }}>
-                jungle-bash - juanberro@monito-code:~ 🐒
+              <Circle size={12} fill="#f87171" stroke="none" />
+              <Circle size={12} fill="#fbbf24" stroke="none" />
+              <Circle size={12} fill="#34d399" stroke="none" />
+              <span className="terminal-title">
+                juanberro@portfolio:~/dev
               </span>
             </div>
-            <TerminalIcon size={18} color="var(--jungle-emerald)" />
+            <TerminalIcon size={17} color="var(--code-accent)" />
           </div>
 
-          {/* Terminal Output */}
-          <div style={{
-            padding: '1.5rem',
-            minHeight: '280px',
-            maxHeight: '400px',
-            overflowY: 'auto',
-            fontSize: '0.92rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-          }}>
+          {/* Salida */}
+          <div className="terminal-body">
             {history.map((item, idx) => (
-              <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                 {item.command !== 'welcome' && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--jungle-emerald)' }}>
-                    <span>juanberro@jungle:~$</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--code-accent)' }}>
+                    <span>juanberro@portfolio:~$</span>
                     <span style={{ color: '#ffffff', fontWeight: 700 }}>{item.command}</span>
                   </div>
                 )}
@@ -217,39 +190,22 @@ export const InteractiveTerminal: React.FC = () => {
             <div ref={terminalEndRef} />
           </div>
 
-          {/* Input Line */}
-          <form
-            onSubmit={handleCommand}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              padding: '0.9rem 1.5rem',
-              borderTop: '1px solid var(--border-color)',
-              background: 'rgba(0,0,0,0.3)'
-            }}
-          >
-            <span style={{ color: 'var(--jungle-emerald)', fontWeight: 700 }}>juanberro@jungle:~$</span>
+          {/* Entrada */}
+          <form onSubmit={handleCommand} className="terminal-input-row">
+            <span className="terminal-prompt">juanberro@portfolio:~$</span>
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="escribe 'help' o 'monito'..."
-              style={{
-                flex: 1,
-                background: 'transparent',
-                border: 'none',
-                outline: 'none',
-                color: '#ffffff',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.94rem'
-              }}
+              placeholder="escribe 'help' para empezar..."
+              aria-label="Comando de terminal"
+              autoComplete="off"
+              spellCheck={false}
             />
-            <button type="submit" style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>
-              <CornerDownLeft size={18} />
+            <button type="submit" style={{ background: 'transparent', border: 'none', color: 'var(--code-muted)', cursor: 'pointer' }}>
+              <CornerDownLeft size={17} />
             </button>
           </form>
-
         </div>
       </div>
     </section>

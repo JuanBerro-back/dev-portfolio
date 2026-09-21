@@ -6,42 +6,35 @@ export const Experience: React.FC = () => {
   return (
     <section id="experience">
       <div className="container">
-        <h2 className="section-title">Trayectoria & <span className="gradient-text">Experiencia</span></h2>
+        <span className="eyebrow">Trayectoria · 05</span>
+        <h2 className="section-title">
+          Recorrido & <span className="gradient-text">experiencia</span>
+        </h2>
         <p className="section-subtitle">
-          Recorrido profesional, hitos alcanzados y constante aprendizaje en la ingeniería de software.
+          Mi camino hasta hoy: proyectos que resuelven problemas, formación constante
+          y un aprendizaje que no se detiene.
         </p>
 
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-          
-          {/* Vertical Timeline Line */}
-          <div style={{
-            position: 'absolute',
-            left: '28px',
-            top: '20px',
-            bottom: '20px',
-            width: '2px',
-            background: 'linear-gradient(180deg, var(--primary-cyan) 0%, var(--accent-purple) 100%)',
-            opacity: 0.4
-          }} />
+        <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative' }}>
+          <div className="timeline-line" />
 
           {experienceData.map((item) => (
             <div
               key={item.id}
               style={{
                 display: 'flex',
-                gap: '1.5rem',
-                marginBottom: '2.5rem',
+                gap: '1.4rem',
+                marginBottom: '2.2rem',
                 position: 'relative'
               }}
             >
-              {/* Timeline Node Icon */}
+              {/* Nodo */}
               <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '16px',
-                background: 'var(--bg-dark)',
-                border: item.type === 'work' ? '2px solid var(--primary-cyan)' : '2px solid var(--accent-purple)',
-                boxShadow: item.type === 'work' ? 'var(--shadow-glow)' : 'var(--shadow-purple-glow)',
+                width: '54px',
+                height: '54px',
+                borderRadius: '14px',
+                background: 'var(--accent-soft)',
+                border: '1px solid var(--accent-border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -49,74 +42,62 @@ export const Experience: React.FC = () => {
                 zIndex: 2
               }}>
                 {item.type === 'work' ? (
-                  <Briefcase size={22} color="var(--primary-cyan)" />
+                  <Briefcase size={22} color="var(--accent)" />
                 ) : (
-                  <GraduationCap size={22} color="var(--accent-purple)" />
+                  <GraduationCap size={22} color="var(--accent)" />
                 )}
               </div>
 
-              {/* Card Content */}
-              <div className="glass-card" style={{ flexGrow: 1, padding: '1.8rem' }}>
+              {/* Contenido */}
+              <div className="glass-card" style={{ flexGrow: 1, padding: '1.7rem' }}>
                 <div style={{
                   display: 'flex',
                   flexWrap: 'wrap',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   gap: '0.5rem',
-                  marginBottom: '0.6rem'
+                  marginBottom: '0.5rem'
                 }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#ffffff' }}>{item.role}</h3>
+                  <h3 style={{ fontSize: '1.25rem', margin: 0 }}>{item.role}</h3>
                   <span style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.4rem',
-                    fontSize: '0.85rem',
-                    color: 'var(--primary-cyan)',
+                    fontSize: '0.84rem',
+                    color: 'var(--text-muted)',
                     fontFamily: 'var(--font-mono)'
                   }}>
-                    <Calendar size={14} /> {item.period}
+                    <Calendar size={14} color="var(--accent)" /> {item.period}
                   </span>
                 </div>
 
-                <h4 style={{ fontSize: '1rem', color: 'var(--accent-purple)', marginBottom: '1rem', fontWeight: 600 }}>
+                <h4 style={{ fontSize: '0.95rem', color: 'var(--accent-strong)', margin: '0 0 0.9rem 0', fontWeight: 600 }}>
                   {item.company}
                 </h4>
 
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.65, marginBottom: '1.1rem' }}>
                   {item.description}
                 </p>
 
-                {/* Achievements List */}
-                <div style={{ marginBottom: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ marginBottom: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   {item.achievements.map((ach, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)' }}>
-                      <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <CheckCircle2 size={16} color="var(--positive)" style={{ flexShrink: 0, marginTop: '3px' }} />
                       <span>{ach}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Tech Pills */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                   {item.skills.map((skill, idx) => (
-                    <span key={idx} style={{
-                      fontSize: '0.75rem',
-                      padding: '0.2rem 0.6rem',
-                      borderRadius: '6px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-muted)'
-                    }}>
+                    <span key={idx} className="code-tag" style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
                       {skill}
                     </span>
                   ))}
                 </div>
-
               </div>
-
             </div>
           ))}
-
         </div>
       </div>
     </section>

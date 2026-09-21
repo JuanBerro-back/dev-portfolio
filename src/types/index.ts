@@ -11,7 +11,6 @@ export interface Project {
   metrics?: string;
   highlights: string[];
   image: string;
-  monkeyMascot?: string;
 }
 
 export interface Skill {
@@ -20,7 +19,6 @@ export interface Skill {
   level: number; // 0 to 100
   iconName: string;
   description: string;
-  emoji?: string;
 }
 
 export interface ExperienceItem {
@@ -50,5 +48,5 @@ export interface ProfileInfo {
   githubRepos: number;
   githubFollowers: number;
   githubStars: number;
-  jungleMotto: string;
+  motto: string;
 }

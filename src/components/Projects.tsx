@@ -2,57 +2,51 @@ import React, { useState } from 'react';
 import { projectsData } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
-import { Github, ArrowUpRight } from 'lucide-react';
+import { Github, ArrowUpRight, Folder } from 'lucide-react';
+
+const CATEGORY_LABELS: Record<string, string> = {
+  backend: 'Backend y APIs',
+  fullstack: 'Fullstack',
+  frontend: 'Frontend',
+};
 
 export const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const tabs = [
-    { id: 'all', label: '🌴 Todos los Proyectos' },
-    { id: 'backend', label: '🐍 Python & APIs' },
-    { id: 'fullstack', label: '🗺️ Geolocalización' },
-    { id: 'frontend', label: '🧮 Web Apps' }
+    { id: 'all', label: 'Todos' },
+    { id: 'backend', label: 'Backend y APIs' },
+    { id: 'fullstack', label: 'Fullstack' },
+    { id: 'frontend', label: 'Frontend' },
   ];
 
   const filteredProjects = activeTab === 'all'
     ? projectsData
-    : projectsData.filter(p => p.category === activeTab);
+    : projectsData.filter((p) => p.category === activeTab);
 
   return (
     <section id="projects">
       <div className="container">
-        <h2 className="section-title">Portafolio de <span className="gradient-banana">Proyectos 🐒🍌</span></h2>
-        <p className="section-subtitle">
-          Proyectos reales construidos en Python, FastAPI, Flask, React, TypeScript y JavaScript. Enlaza directamente a los repositorios de GitHub de @JuanBerro-back.
+        <div style={{ textAlign: 'center' }}>
+          <span className="eyebrow">Proyectos · 02</span>
+        </div>
+        <h2 className="section-title" style={{ textAlign: 'center' }}>
+          Trabajo <span className="gradient-text">seleccionado</span>
+        </h2>
+        <p className="section-subtitle" style={{ marginInline: 'auto' }}>
+          Proyectos reales que he construido con Python, FastAPI, React, TypeScript y
+          JavaScript, todos con código público en GitHub y varios desplegados en producción.
         </p>
 
-        {/* Filter Tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-          <div style={{
-            display: 'inline-flex',
-            flexWrap: 'wrap',
-            gap: '0.5rem',
-            background: 'rgba(16, 185, 129, 0.05)',
-            padding: '0.4rem',
-            borderRadius: '16px',
-            border: '1px solid var(--border-color)'
-          }}>
+        {/* Filtros */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.8rem' }}>
+          <div className="filter-bar">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                style={{
-                  padding: '0.55rem 1.2rem',
-                  borderRadius: '12px',
-                  border: 'none',
-                  background: activeTab === tab.id ? 'var(--grad-jungle)' : 'transparent',
-                  color: activeTab === tab.id ? '#07130e' : 'var(--text-muted)',
-                  fontWeight: activeTab === tab.id ? 700 : 500,
-                  cursor: 'pointer',
-                  fontSize: '0.92rem',
-                  transition: 'all 0.2s ease'
-                }}
+                className={`filter-btn ${activeTab === tab.id ? 'active' : ''}`}
               >
                 {tab.label}
               </button>
@@ -60,11 +54,11 @@ export const Projects: React.FC = () => {
           </div>
         </div>
 
-        {/* Projects Cards Grid */}
+        {/* Grid de proyectos */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-          gap: '2rem'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))',
+          gap: '1.8rem'
         }}>
           {filteredProjects.map((project) => (
             <div
@@ -74,17 +68,13 @@ export const Projects: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                overflow: 'hidden'
               }}
               onClick={() => setSelectedProject(project)}
             >
-              {/* Image Banner */}
-              <div style={{
-                position: 'relative',
-                height: '210px',
-                width: '100%',
-                overflow: 'hidden'
-              }}>
+              {/* Imagen */}
+              <div style={{ position: 'relative', height: '200px', width: '100%', overflow: 'hidden' }}>
                 <img
                   src={project.image}
                   alt={project.title}
@@ -94,81 +84,80 @@ export const Projects: React.FC = () => {
                     objectFit: 'cover',
                     transition: 'transform 0.5s ease'
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                   onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                 />
-                
                 <div style={{
                   position: 'absolute',
                   top: '1rem',
-                  right: '1rem',
-                  background: 'rgba(7, 19, 14, 0.9)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid var(--banana-gold)',
-                  color: 'var(--banana-gold)',
-                  padding: '0.3rem 0.8rem',
-                  borderRadius: '20px',
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.3rem'
+                  left: '1rem',
+                  background: 'rgba(255, 255, 255, 0.92)',
+                  border: '1px solid var(--border)',
+                  color: 'var(--text-secondary)',
+                  padding: '0.28rem 0.8rem',
+                  borderRadius: '999px',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  backdropFilter: 'blur(6px)'
                 }}>
-                  {project.monkeyMascot || '🐒'} Python
+                  {CATEGORY_LABELS[project.category] || project.category}
                 </div>
+                {project.featured && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'rgba(255, 255, 255, 0.92)',
+                    color: 'var(--accent-strong)',
+                    padding: '0.28rem 0.8rem',
+                    borderRadius: '999px',
+                    fontSize: '0.76rem',
+                    fontWeight: 600,
+                    backdropFilter: 'blur(6px)'
+                  }}>
+                    <Folder size={12} style={{ verticalAlign: 'text-bottom', marginRight: '0.25rem' }} />
+                    Destacado
+                  </div>
+                )}
               </div>
 
-              {/* Card Body */}
-              <div style={{ padding: '1.6rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <span className="code-tag" style={{ alignSelf: 'flex-start', marginBottom: '0.8rem' }}>
-                  {project.category.toUpperCase()}
-                </span>
-                
-                <h3 style={{ fontSize: '1.35rem', marginBottom: '0.6rem', color: '#ffffff' }}>{project.title}</h3>
-                
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '1.4rem', flexGrow: 1 }}>
+              {/* Cuerpo */}
+              <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.55rem' }}>{project.title}</h3>
+
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.2rem', flexGrow: 1 }}>
                   {project.shortDescription}
                 </p>
 
-                {/* Tech Pills */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.3rem' }}>
                   {project.technologies.slice(0, 4).map((tech, idx) => (
-                    <span key={idx} style={{
-                      fontSize: '0.78rem',
-                      padding: '0.2rem 0.6rem',
-                      borderRadius: '8px',
-                      background: 'rgba(16, 185, 129, 0.08)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-main)',
-                      fontWeight: 500
-                    }}>
+                    <span key={idx} className="code-tag" style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span style={{ fontSize: '0.78rem', color: 'var(--banana-gold)', alignSelf: 'center', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', alignSelf: 'center', fontWeight: 600 }}>
                       +{project.technologies.length - 4}
                     </span>
                   )}
                 </div>
 
-                {/* Bottom Actions */}
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   paddingTop: '1rem',
-                  borderTop: '1px solid var(--border-color)'
+                  borderTop: '1px solid var(--border)'
                 }}>
                   <span style={{
                     fontSize: '0.9rem',
-                    color: 'var(--jungle-emerald)',
-                    fontWeight: 700,
+                    color: 'var(--accent-strong)',
+                    fontWeight: 600,
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.3rem'
                   }}>
-                    Ver Detalles 🍌 <ArrowUpRight size={16} />
+                    Ver detalles <ArrowUpRight size={16} />
                   </span>
 
                   <a
@@ -180,25 +169,23 @@ export const Projects: React.FC = () => {
                       color: 'var(--text-muted)',
                       padding: '0.4rem',
                       borderRadius: '8px',
-                      transition: 'color 0.2s ease',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.3rem'
+                      gap: '0.3rem',
+                      transition: 'color 0.2s ease'
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--banana-gold)')}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
                     title="Ver repositorio en GitHub"
                   >
-                    <Github size={20} />
+                    <Github size={19} />
                   </a>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
 
-        {/* Project Details Modal */}
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       </div>
     </section>
